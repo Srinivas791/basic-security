@@ -1,0 +1,18 @@
+"""
+Vercel Serverless Function Entrypoint
+Filename: api/index.py
+"""
+import sys
+import os
+
+# Add root directory to sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.dirname(current_dir)
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
+from main import app
+
+# Vercel WSGI entrypoint
+if __name__ == '__main__':
+    app.run()
